@@ -17,8 +17,10 @@ export default function Home() {
 
 			<main>
 				<h1 className={styles.title}>
-					Read <Link href="/posts/list-of-books">this page!</Link>
+					<Link href="/posts/list-of-books">List all books</Link>
 				</h1>
+				
+				<Link href="/posts/create-books">Create a Book!</Link>
 
 				<p className={styles.description}>
 					Get started by editing <code>pages/index.js</code>

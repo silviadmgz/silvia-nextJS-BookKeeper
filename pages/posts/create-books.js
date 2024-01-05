@@ -1,14 +1,18 @@
 import Link from 'next/link';
 
-export default function FirstPost() {
+export default function CreateBooks() {
 	const handleRequest = () => {
 		const apiFetch = async () => {
 			const data = await fetch(
 				'https://silvia-nextjs-bookkeeper-e3uzzxqbva-uc.a.run.app/Books',
 				{
-					method: 'GET',
+					method: 'POST',
 					headers: { 'Content-Type': 'application/json' },
-					// body: JSON.stringify({ newWords: newWords }),
+					body: JSON.stringify({
+						author: 'Sarah J Maas',
+						title: 'Crescent City',
+						publicationYear: 2020,
+					}),
 				}
 			);
 			const jsonData = await data.json();
@@ -19,11 +23,11 @@ export default function FirstPost() {
 
 	return (
 		<>
-			<h1>First Post</h1>
+			<h1>Create Books</h1>
 			<h2>
 				<Link href="/">Back to home</Link>
 			</h2>
-			<button onClick={handleRequest}>Click me!</button>
+			<button onClick={handleRequest}>Click me to create a book!</button>
 		</>
 	);
 }

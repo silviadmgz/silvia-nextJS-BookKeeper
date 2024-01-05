@@ -1,6 +1,6 @@
 import Link from 'next/link';
 
-export default function FirstPost() {
+export default function ListOfBooks() {
 	const handleRequest = () => {
 		const apiFetch = async () => {
 			const data = await fetch(
