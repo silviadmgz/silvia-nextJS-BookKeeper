@@ -1,3 +1,3 @@
 namespace webAPINextJS.Api.Dtos;
 
-public record BookRequest(string author, string title, int publicationYear);
+public record BookRequest(string author, string title, string publicationYear);
