@@ -1,12 +1,10 @@
 import Head from 'next/head';
 import styles from '../styles/Home.module.css'
 import Link from 'next/link';
-import NavBar from '../components/NavBar';
 
 export default function Home() {
 	return (
 		<div className={styles.container}>
-			<NavBar />
 			<Head>
 				<title>Create Next App</title>
 				<link
@@ -19,10 +17,12 @@ export default function Home() {
 				<h1 className={styles.title}>
 					<Link href="/posts/list-of-books">List all books</Link>
 				</h1>
-				
-				<Link href="/posts/create-books">Create a Book!</Link>
+				<h1>
+					<Link href="/posts/create-books">Create a Book!</Link>
+				</h1>
+			</main>
 
-				<p className={styles.description}>
+			{/* <p className={styles.description}>
 					Get started by editing <code>pages/index.js</code>
 				</p>
 
@@ -61,7 +61,7 @@ export default function Home() {
 						</p>
 					</a>
 				</div>
-			</main>
+			
 
 			<footer>
 				<a
@@ -130,7 +130,7 @@ export default function Home() {
 				* {
 					box-sizing: border-box;
 				}
-			`}</style>
+			`}</style> */}
 		</div>
 	);
 }
