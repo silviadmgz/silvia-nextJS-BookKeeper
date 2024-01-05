@@ -26,6 +26,7 @@ public class BooksController : ControllerBase
     public IActionResult GetListOfBooks()
     {
         var books = _bookKeeper.GetListOfBooks();
+        Console.WriteLine(books);
         return Ok(books);
     }
 }

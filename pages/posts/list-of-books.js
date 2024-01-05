@@ -8,7 +8,6 @@ export default function FirstPost() {
 				{
 					method: 'GET',
 					headers: { 'Content-Type': 'application/json' },
-					// body: JSON.stringify({ newWords: newWords }),
 				}
 			);
 			const jsonData = await data.json();
