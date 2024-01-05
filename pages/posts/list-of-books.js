@@ -1,4 +1,6 @@
 import Link from 'next/link';
+import { useEffect, useState } from 'react';
+import styles from '../../styles/Home.module.css';
 
 export default function ListOfBooks() {
 	const handleRequest = () => {
@@ -12,17 +14,27 @@ export default function ListOfBooks() {
 			);
 			const jsonData = await data.json();
 			console.log(jsonData);
+			setListOfBooks(data);
 		};
 		apiFetch();
 	};
 
+	const [listOfBooks, setListOfBooks] = useState('I am empty!');
+
+	useEffect(() => {}, [listOfBooks]);
+
 	return (
 		<>
-			<h1>List of books</h1>
-			<h2>
+			<nav>
 				<Link href="/">Back to home</Link>
-			</h2>
-			<button onClick={handleRequest}>Click me!</button>
+			</nav>
+
+			<h1 className={styles.title}>List of books</h1>
+			{/* {listOfBooks.((book) => {
+				return <span>Authors: {listOfBooks.author}</span>;
+				// <span>Title: {listOfBooks.title}</span>
+			})} */}
+			<button onClick={handleRequest}>Click me to get list!</button>
 		</>
 	);
 }
