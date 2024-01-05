@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using webAPINextJS.Api.Dtos;
+using webAPINextJS.Api.Services;
 
 namespace webAPINextJS.Api.Controllers;
 
@@ -6,27 +8,17 @@ namespace webAPINextJS.Api.Controllers;
 [Route("[controller]")]
 public class BooksController : ControllerBase
 {
-    private static readonly string[] Summaries = new[]
-    {
-        "Freezing", "Bracing", "Chilly", "Cool", "Mild", "Warm", "Balmy", "Hot", "Sweltering", "Scorching"
-    };
+    private readonly IBookKeeper _bookKeeper;
 
-    private readonly ILogger<BooksController> _logger;
-
-    public BooksController(ILogger<BooksController> logger)
+    public BooksController(IBookKeeper bookKeeper)
     {
-        _logger = logger;
+        _bookKeeper = bookKeeper;
     }
 
-    [HttpGet(Name = "GetWeatherForecast")]
-    public IEnumerable<WeatherForecast> Get()
+    [HttpPost]
+    public IActionResult CreateBook(BookRequest request)
     {
-        return Enumerable.Range(1, 5).Select(index => new WeatherForecast
-        {
-            Date = DateOnly.FromDateTime(DateTime.Now.AddDays(index)),
-            TemperatureC = Random.Shared.Next(-20, 55),
-            Summary = Summaries[Random.Shared.Next(Summaries.Length)]
-        })
-        .ToArray();
+        _bookKeeper.CreateBook(request);
+        return Ok();
     }
 }

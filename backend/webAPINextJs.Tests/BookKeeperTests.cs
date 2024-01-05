@@ -1,3 +1,4 @@
+using FluentAssertions;
 using webAPINextJS.Api.Dtos;
 using webAPINextJS.Api.Services;
 
@@ -12,6 +13,6 @@ public class BookKeeperTests
         var request = new BookRequest("Brandon Sanderson", "Mistborn", 2008);
 
         instance.CreateBook(request);
-        
+        instance.GetListOfBooks().Count.Should().Be(1);
     }
 }
