@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import styles from '../../styles/Home.module.css';
 
 export default function CreateBooks() {
 	const handleRequest = () => {
@@ -11,7 +12,7 @@ export default function CreateBooks() {
 					body: JSON.stringify({
 						author: 'Sarah J Maas',
 						title: 'Crescent City',
-						publicationYear: 2020,
+						publicationYear: "2020",
 					}),
 				}
 			);
@@ -23,10 +24,11 @@ export default function CreateBooks() {
 
 	return (
 		<>
-			<h1>Create Books</h1>
-			<h2>
+			<nav>
 				<Link href="/">Back to home</Link>
-			</h2>
+			</nav>
+
+			<h1 className={styles.title}>Create Books</h1>
 			<button onClick={handleRequest}>Click me to create a book!</button>
 		</>
 	);
