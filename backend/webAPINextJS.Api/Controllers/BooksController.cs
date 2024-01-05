@@ -21,4 +21,11 @@ public class BooksController : ControllerBase
         _bookKeeper.CreateBook(request);
         return Ok();
     }
+    
+    [HttpGet]
+    public IActionResult GetListOfBooks()
+    {
+        var books = _bookKeeper.GetListOfBooks();
+        return Ok(books);
+    }
 }
